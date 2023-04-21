@@ -21,14 +21,7 @@ app.use(cookieParser())
 // app.use(bodyParser.urlencoded({extended:true}))
 app.use(fileUpload())
 
-// static files 
 
-app.use(express.static(path.join(__dirname, '../frontend/build')))
-
-app.get('', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-
-})
 
 
 
@@ -43,6 +36,17 @@ app.use('/api/v1', productroutes);
 app.use('/api/v1', userroutes);
 app.use('/api/v1', orderroutes);
 app.use('/api/v1', paymentroutes);
+
+
+
+// static files 
+
+app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+app.get('', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+
+})
 
 
 
